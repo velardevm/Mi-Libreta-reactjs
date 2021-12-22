@@ -17,8 +17,17 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
+  CForm,
+  CFormCheck,
+  CFormInput,
+  CFormLabel,
+  CFormSelect,
+  CInputGroup,
+  CInputGroupText,
+  CFormFloating,
 } from '@coreui/react'
 import { CChartLine } from '@coreui/react-chartjs'
+import { DocsExample } from 'src/components'
 import { getStyle, hexToRgba } from '@coreui/utils'
 import CIcon from '@coreui/icons-react'
 import {
@@ -456,6 +465,56 @@ const Dashboard = () => {
           </CCard>
         </CCol>
       </CRow>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>Reportes por alumno</strong> <small>Filtros</small>
+          </CCardHeader>
+          <CCardBody>
+            <DocsExample href="forms/layout#auto-sizing">
+              <CForm className="row gx-3 gy-2 align-items-center">
+                <CCol sm={3}>
+                  <CFormLabel className="visually-hidden" htmlFor="specificSizeInputName">
+                    Name
+                  </CFormLabel>
+                  <CFormInput id="specificSizeInputName" placeholder="Jane Doe" />
+                </CCol>
+                <CCol sm={3}>
+                  <CFormLabel className="visually-hidden" htmlFor="specificSizeInputGroupUsername">
+                    Username
+                  </CFormLabel>
+                  <CFormFloating>
+                    <CFormSelect id="floatingSelectGrid" aria-label="Floating label select example">
+                      <option>Seleccione una sección</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </CFormSelect>
+                    <CFormLabel htmlFor="floatingSelectGrid">Sección</CFormLabel>
+                  </CFormFloating>
+                </CCol>
+                <CCol sm={3}>
+                  <CFormLabel className="visually-hidden" htmlFor="specificSizeSelect">
+                    Preference
+                  </CFormLabel>
+                  <CFormFloating>
+                    <CFormSelect id="floatingSelectGrid" aria-label="Floating label select example">
+                      <option>Seleccione un grupo</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </CFormSelect>
+                    <CFormLabel htmlFor="floatingSelectGrid">Grupo</CFormLabel>
+                  </CFormFloating>
+                </CCol>
+                <CCol xs="auto">
+                  <CButton type="submit">Submit</CButton>
+                </CCol>
+              </CForm>
+            </DocsExample>
+          </CCardBody>
+        </CCard>
+      </CCol>
     </>
   )
 }
