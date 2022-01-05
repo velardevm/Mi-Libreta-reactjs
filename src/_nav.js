@@ -28,7 +28,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Enviar reportes',
-    to: '/theme/colors',
+    to: '/theme/reports',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
   },
   {
