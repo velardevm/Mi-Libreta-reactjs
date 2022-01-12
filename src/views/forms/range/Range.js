@@ -1,83 +1,253 @@
 import React from 'react'
-import { CCard, CCardBody, CCardHeader, CCol, CFormLabel, CFormRange, CRow } from '@coreui/react'
-import { DocsCallout, DocsExample } from 'src/components'
+import {
+  CAvatar,
+  CButton,
+  CButtonGroup,
+  CBadge,
+  CCard,
+  CCardBody,
+  CCardFooter,
+  CCardHeader,
+  CCol,
+  CProgress,
+  CRow,
+  CTable,
+  CTableBody,
+  CTableDataCell,
+  CTableHead,
+  CTableHeaderCell,
+  CTableRow,
+  CFormInput,
+  CFormLabel,
+  CFormCheck,
+  CFormSelect,
+} from '@coreui/react'
+import CIcon from '@coreui/icons-react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit, faEllipsisH, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap'
+import Box from '@mui/material/Box'
+import AdapterDateFns from '@mui/lab/AdapterDateFns'
+import LocalizationProvider from '@mui/lab/LocalizationProvider'
+import DesktopDatePicker from '@mui/lab/DatePicker'
+import DeleteIcon from '@mui/icons-material/Delete'
+import {
+  cibCcAmex,
+  cibCcApplePay,
+  cibCcMastercard,
+  cibCcPaypal,
+  cibCcStripe,
+  cibCcVisa,
+  cibGoogle,
+  cibFacebook,
+  cibLinkedin,
+  cifBr,
+  cifEs,
+  cifFr,
+  cifIn,
+  cifPl,
+  cifUs,
+  cibTwitter,
+  cilCloudDownload,
+  cilPeople,
+  cilUser,
+  cilUserFemale,
+} from '@coreui/icons'
 
 const Range = () => {
+  const [value, setValue] = React.useState(new Date())
   return (
     <CRow>
       <CCol xs={12}>
-        <DocsCallout name="Range" href="forms/range" />
-      </CCol>
-      <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Range</strong> <small></small>
+            <strong>Envio de reportes</strong> <small></small>
           </CCardHeader>
           <CCardBody>
-            <p className="text-medium-emphasis small">
-              Create custom <code>&lt;input type=&#34;range&#34;&gt;</code> controls with{' '}
-              <code>&lt;CFormRange&gt;</code>.
-            </p>
-            <DocsExample href="forms/range">
-              <CFormLabel htmlFor="customRange1">Example range</CFormLabel>
-              <CFormRange id="customRange1" />
-            </DocsExample>
+            <CRow>
+              <CCol md={4}>
+                <CFormLabel style={{ marginTop: '20px' }}>Fecha</CFormLabel>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DesktopDatePicker
+                    label="Custom input"
+                    value={value}
+                    onChange={(newValue) => {
+                      setValue(newValue)
+                    }}
+                    renderInput={({ inputRef, inputProps, InputProps }) => (
+                      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <input ref={inputRef} {...inputProps} />
+                        {InputProps?.endAdornment}
+                      </Box>
+                    )}
+                  />
+                </LocalizationProvider>
+              </CCol>
+              <CCol md={4}>
+                <CFormLabel style={{ marginTop: '20px' }}>Seccion y grupo</CFormLabel>
+                <CFormSelect aria-label="Default select example">
+                  <option>Todos</option>
+                  <option value="1">Maternal / A</option>
+                  <option value="2">Maternal / B</option>
+                  <option value="3">Maternal / C</option>
+                </CFormSelect>
+              </CCol>
+              <CCol md={4}>
+                <CFormLabel style={{ marginTop: '20px' }}>Buscar alumno</CFormLabel>
+                <CFormInput
+                  type="text"
+                  id="exampleFormControlInput1ddddddd"
+                  placeholder="Nombre o ID"
+                />
+              </CCol>
+            </CRow>
           </CCardBody>
         </CCard>
       </CCol>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Range</strong> <small>Disabled</small>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-medium-emphasis small">
-              Add the <code>disabled</code> boolean attribute on an input to give it a grayed out
-              appearance and remove pointer events.
-            </p>
-            <DocsExample href="forms/range#disabled">
-              <CFormLabel htmlFor="disabledRange">Disabled range</CFormLabel>
-              <CFormRange id="disabledRange" disabled />
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-      </CCol>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Range</strong> <small>Min and max</small>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-medium-emphasis small">
-              Range inputs have implicit values for <code>min</code> and <code>max</code>—
-              <code>0</code> and <code>100</code>, respectively. You may specify new values for
-              those using the <code>min</code> and <code>max</code> attributes.
-            </p>
-            <DocsExample href="forms/range#min-and-max">
-              <CFormLabel htmlFor="customRange2">Example range</CFormLabel>
-              <CFormRange min="0" max="5" defaultValue="3" id="customRange2" />
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-      </CCol>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Range</strong> <small>Steps</small>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-medium-emphasis small">
-              By default, range inputs &#34;snap&#34; to integer values. To change this, you can
-              specify a <code>step</code> value. In the example below, we double the number of steps
-              by using <code>step=&#34;0.5&#34;</code>.
-            </p>
-            <DocsExample href="forms/range#steps">
-              <CFormLabel htmlFor="customRange3">Example range</CFormLabel>
-              <CFormRange min="0" max="5" step="0.5" defaultValue="3" id="customRange3" />
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-      </CCol>
+      <CRow>
+        <CCol xs={12}>
+          <CCard className="mb-4">
+            <CCardHeader>
+              <strong>Maternal / A</strong> <small></small>
+            </CCardHeader>
+            <CCardBody>
+              <CTable striped>
+                <CTableHead className="text-center">
+                  <CTableRow>
+                    <CTableHeaderCell scope="col"></CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Alumno</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Grupo</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Reportes pendientes</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Reportes completados</CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Acciones</CTableHeaderCell>
+                  </CTableRow>
+                </CTableHead>
+                <CTableBody className="text-center">
+                  <CTableRow>
+                    <CTableHeaderCell scope="row">
+                      <CFormCheck id="flexCheckDefault" label="" />
+                    </CTableHeaderCell>
+                    <CTableDataCell className="text-center">Mark</CTableDataCell>
+                    <CTableDataCell>Maternal / A</CTableDataCell>
+                    <CTableDataCell className="text-success">
+                      <strong>0</strong>
+                    </CTableDataCell>
+                    <CTableDataCell className="text-success">
+                      <strong>5</strong>
+                    </CTableDataCell>
+                    <CTableDataCell>
+                      <Dropdown as={ButtonGroup}>
+                        <Dropdown.Toggle
+                          as={Button}
+                          split
+                          variant="link"
+                          className="text-dark m-0 p-0"
+                        >
+                          <span className="icon icon-lg">
+                            <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+                          </span>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item>
+                            <FontAwesomeIcon icon={faEye} className="me-2" /> Ver detalles
+                          </Dropdown.Item>
+                          <Dropdown.Item>
+                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar
+                          </Dropdown.Item>
+                          <Dropdown.Item className="text-danger">
+                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </CTableDataCell>
+                  </CTableRow>
+                  <CTableRow>
+                    <CTableHeaderCell scope="row">
+                      <CFormCheck id="flexCheckDefault" label="" />
+                    </CTableHeaderCell>
+                    <CTableDataCell>Jacob</CTableDataCell>
+                    <CTableDataCell>Maternal / A</CTableDataCell>
+                    <CTableDataCell className="text-warning">
+                      <strong>2</strong>
+                    </CTableDataCell>
+                    <CTableDataCell className="text-warning">
+                      <strong>3</strong>
+                    </CTableDataCell>
+                    <CTableDataCell>
+                      <Dropdown as={ButtonGroup}>
+                        <Dropdown.Toggle
+                          as={Button}
+                          split
+                          variant="link"
+                          className="text-dark m-0 p-0"
+                        >
+                          <span className="icon icon-lg">
+                            <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+                          </span>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item>
+                            <FontAwesomeIcon icon={faEye} className="me-2" /> Ver detalles
+                          </Dropdown.Item>
+                          <Dropdown.Item>
+                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar
+                          </Dropdown.Item>
+                          <Dropdown.Item className="text-danger">
+                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </CTableDataCell>
+                  </CTableRow>
+                  <CTableRow>
+                    <CTableHeaderCell scope="row">
+                      <CFormCheck id="flexCheckDefault" label="" />
+                    </CTableHeaderCell>
+                    <CTableDataCell>Larry the Bird</CTableDataCell>
+                    <CTableDataCell>Maternal / A</CTableDataCell>
+                    <CTableDataCell className="text-warning">
+                      <strong>3</strong>
+                    </CTableDataCell>
+                    <CTableDataCell className="text-warning">
+                      <strong>2</strong>
+                    </CTableDataCell>
+                    <CTableDataCell>
+                      <Dropdown as={ButtonGroup}>
+                        <Dropdown.Toggle
+                          as={Button}
+                          split
+                          variant="link"
+                          className="text-dark m-0 p-0"
+                        >
+                          <span className="icon icon-lg">
+                            <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+                          </span>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item>
+                            <FontAwesomeIcon icon={faEye} className="me-2" /> Ver detalles
+                          </Dropdown.Item>
+                          <Dropdown.Item>
+                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar
+                          </Dropdown.Item>
+                          <Dropdown.Item className="text-danger">
+                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </CTableDataCell>
+                  </CTableRow>
+                </CTableBody>
+              </CTable>
+            </CCardBody>
+          </CCard>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+            <CButton disabled color="primary">
+              Enviar reportes seleccionados
+            </CButton>
+          </div>
+        </CCol>
+      </CRow>
     </CRow>
   )
 }

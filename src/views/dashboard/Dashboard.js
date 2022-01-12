@@ -104,7 +104,7 @@ const Dashboard = () => {
       user: {
         name: 'Yiorgos Avraamu',
         new: true,
-        registered: 'Jan 1, 2021',
+        registered: 'Maternal / A',
       },
       country: { name: 'USA', flag: cifUs },
       usage: {
@@ -120,7 +120,7 @@ const Dashboard = () => {
       user: {
         name: 'Avram Tarasios',
         new: false,
-        registered: 'Jan 1, 2021',
+        registered: 'Maternal / A',
       },
       country: { name: 'Brazil', flag: cifBr },
       usage: {
@@ -133,7 +133,7 @@ const Dashboard = () => {
     },
     {
       avatar: { src: avatar3, status: 'warning' },
-      user: { name: 'Quintin Ed', new: true, registered: 'Jan 1, 2021' },
+      user: { name: 'Quintin Ed', new: true, registered: 'Maternal / A' },
       country: { name: 'India', flag: cifIn },
       usage: {
         value: 74,
@@ -145,7 +145,7 @@ const Dashboard = () => {
     },
     {
       avatar: { src: avatar4, status: 'secondary' },
-      user: { name: 'Enéas Kwadwo', new: true, registered: 'Jan 1, 2021' },
+      user: { name: 'Enéas Kwadwo', new: true, registered: 'Maternal / A' },
       country: { name: 'France', flag: cifFr },
       usage: {
         value: 98,
@@ -160,7 +160,7 @@ const Dashboard = () => {
       user: {
         name: 'Agapetus Tadeáš',
         new: true,
-        registered: 'Jan 1, 2021',
+        registered: 'Maternal / A',
       },
       country: { name: 'Spain', flag: cifEs },
       usage: {
@@ -176,7 +176,7 @@ const Dashboard = () => {
       user: {
         name: 'Friderik Dávid',
         new: true,
-        registered: 'Jan 1, 2021',
+        registered: 'Maternal / A',
       },
       country: { name: 'Poland', flag: cifPl },
       usage: {

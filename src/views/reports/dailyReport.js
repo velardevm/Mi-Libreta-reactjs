@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   CAvatar,
   CButton,
@@ -17,30 +17,27 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
+  CFormCheck,
 } from '@coreui/react'
 import { DocsExample } from 'src/components'
 import CIcon from '@coreui/icons-react'
 import Button from '@mui/material/Button'
+import ButtonGroup from '@mui/material/ButtonGroup'
 import DeleteIcon from '@mui/icons-material/Delete'
-import SendIcon from '@mui/icons-material/Send'
-import Stack from '@mui/material/Stack'
-import {
-  cibCcAmex,
-  cibCcApplePay,
-  cibCcMastercard,
-  cibCcPaypal,
-  cibCcStripe,
-  cibCcVisa,
-  cifBr,
-  cifEs,
-  cifFr,
-  cifIn,
-  cifPl,
-  cifUs,
-  cilPeople,
-} from '@coreui/icons'
+import FoodReport from '../../components/reports/StudentFood'
+import DiaperReport from '../../components/reports/StudentDiaper'
+import NapReport from '../../components/reports/StudentNap'
+import BathReport from '../../components/reports/StudentBath'
+import AcademicReport from '../../components/reports/AcademicObservations'
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew'
+import RestaurantIcon from '@mui/icons-material/Restaurant'
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions'
+import AirlineSeatFlatAngledIcon from '@mui/icons-material/AirlineSeatFlatAngled'
+import MenuBookIcon from '@mui/icons-material/MenuBook'
+import { cibCcMastercard, cifUs, cilPeople } from '@coreui/icons'
 
 import avatar1 from 'src/assets/images/avatars/1.jpg'
+import { boxSizing } from '@mui/system'
 
 const tableExample = [
   {
@@ -61,7 +58,8 @@ const tableExample = [
   },
 ]
 
-const Colors = () => {
+const Reports = () => {
+  const [count, setCount] = useState(0)
   return (
     <CRow>
       <CCol lg={5}>
@@ -103,47 +101,66 @@ const Colors = () => {
             <strong>Reportes</strong> <small></small>
           </CCardHeader>
           <CCardBody>
-            <Stack direction="row" spacing={2}>
-              <Button size="large" variant="outlined" startIcon={<DeleteIcon />}>
+            <CButtonGroup style={btnform}>
+              <Button variant="outlined" size="sm">
+                <RestaurantIcon fontSize="small" />
+              </Button>
+              <CButton color="info" variant="outline" onClick={() => setCount(1)}>
                 Alimentacion y estado de animo
+              </CButton>
+            </CButtonGroup>
+            <CButtonGroup style={btnform}>
+              <Button variant="outlined" size="sm">
+                <AccessibilityNewIcon fontSize="small" />
               </Button>
-            </Stack>
-            <Stack style={{ marginTop: '10px' }} direction="row" spacing={2}>
-              <Button size="large" variant="outlined" startIcon={<DeleteIcon />}>
+              <CButton color="info" variant="outline" onClick={() => setCount(2)}>
                 Pañales
+              </CButton>
+            </CButtonGroup>
+            <CButtonGroup style={btnform}>
+              <Button variant="outlined" size="sm">
+                <AirlineSeatFlatAngledIcon fontSize="small" />
               </Button>
-            </Stack>
-            <Stack style={{ marginTop: '10px' }} direction="row" spacing={2}>
-              <Button size="large" variant="outlined" startIcon={<DeleteIcon />}>
+              <CButton color="info" variant="outline" onClick={() => setCount(3)}>
                 Siestas
+              </CButton>
+            </CButtonGroup>
+            <CButtonGroup style={btnform}>
+              <Button variant="outlined" size="sm">
+                <EmojiEmotionsIcon fontSize="small" />
               </Button>
-            </Stack>
-            <Stack style={{ marginTop: '10px' }} direction="row" spacing={2}>
-              <Button size="large" variant="outlined" startIcon={<DeleteIcon />}>
-                Observaciones
+              <CButton color="info" variant="outline" onClick={() => setCount(4)}>
+                Baño
+              </CButton>
+            </CButtonGroup>
+            <CButtonGroup style={btnform}>
+              <Button variant="outlined" size="sm">
+                <MenuBookIcon fontSize="small" />
               </Button>
-            </Stack>
-            <Stack style={{ marginTop: '10px' }} direction="row" spacing={2}>
-              <Button size="large" variant="outlined" startIcon={<DeleteIcon />}>
+              <CButton color="info" variant="outline" onClick={() => setCount(5)}>
                 Observaciones academicas
-              </Button>
-            </Stack>
+              </CButton>
+            </CButtonGroup>
           </CCardBody>
         </CCard>
       </CCol>
       <CCol lg={7}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>React Badges</strong> <small>Dismissing</small>
+            <strong>Formulario</strong> <small>Alimentacion y estado de animo</small>
           </CCardHeader>
           <CCardBody>
-            <p className="text-medium-emphasis small">
-              Bootstrap badge scale to suit the size of the parent element by using relative font
-              sizing and <code>em</code> units.
-            </p>
-            <p className="text-medium-emphasis small">
-              Badges can be used as part of links or buttons to provide a counter.
-            </p>
+            {count === 1 ? (
+              <FoodReport />
+            ) : count === 2 ? (
+              <DiaperReport />
+            ) : count === 3 ? (
+              <NapReport />
+            ) : count === 4 ? (
+              <BathReport />
+            ) : (
+              <AcademicReport />
+            )}
           </CCardBody>
         </CCard>
       </CCol>
@@ -151,4 +168,15 @@ const Colors = () => {
   )
 }
 
-export default Colors
+const btnform = {
+  marginLeft: '10px',
+  marginTop: '10px',
+  width: '95%',
+}
+const btnicon = {
+  marginLeft: '10px',
+  marginTop: '10px',
+  display: 'block',
+}
+
+export default Reports
