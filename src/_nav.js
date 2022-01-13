@@ -28,13 +28,13 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Enviar reportes',
-    to: '/theme/reports',
+    to: '/reports',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: 'Consultar libreta',
-    to: '/theme/typography',
+    to: '/diary',
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
   {

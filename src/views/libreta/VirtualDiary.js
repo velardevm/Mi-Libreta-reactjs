@@ -23,50 +23,24 @@ import {
   CFormSelect,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faEllipsisH, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faUsers, faEllipsisH, faEye, faAddressBook } from '@fortawesome/free-solid-svg-icons'
 import { Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap'
-import Box from '@mui/material/Box'
-import AdapterDateFns from '@mui/lab/AdapterDateFns'
-import LocalizationProvider from '@mui/lab/LocalizationProvider'
-import DesktopDatePicker from '@mui/lab/DatePicker'
-import DeleteIcon from '@mui/icons-material/Delete'
-import {
-  cibCcAmex,
-  cibCcApplePay,
-  cibCcMastercard,
-  cibCcPaypal,
-  cibCcStripe,
-  cibCcVisa,
-  cibGoogle,
-  cibFacebook,
-  cibLinkedin,
-  cifBr,
-  cifEs,
-  cifFr,
-  cifIn,
-  cifPl,
-  cifUs,
-  cibTwitter,
-  cilCloudDownload,
-  cilPeople,
-  cilUser,
-  cilUserFemale,
-} from '@coreui/icons'
 
-const Range = () => {
+const SearchDiary = () => {
   const [value, setValue] = React.useState(new Date())
   return (
     <CRow>
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Envio de reportes</strong> <small></small>
+            <strong>Consultar libreta virtual</strong> <small></small>
           </CCardHeader>
           <CCardBody>
             <CRow>
               <CCol md={4}>
-                <CFormLabel style={{ marginTop: '5px' }}>Fecha</CFormLabel>
+                <CFormLabel style={{ marginTop: '5px' }}>Buscar alumno</CFormLabel>
                 <CFormInput type="date" id="calendar" style={{ marginBottom: '7px' }} />
               </CCol>
               <CCol md={4}>
@@ -93,15 +67,19 @@ const Range = () => {
       </CCol>
       <CRow>
         <CCol xs={12}>
+          <CFormCheck style={filterStyle} id="filter" label="" defaultChecked />
+          <FontAwesomeIcon icon={faUsers} className="me-2" /> Ordenar alfabeticamente
+        </CCol>
+        <CCol xs={12}>
           <CCard className="mb-4">
             <CCardHeader>
-              <strong>Maternal / A</strong> <small>Grupo</small>
+              <strong>Maternal / A</strong> <small></small>
             </CCardHeader>
             <CCardBody>
               <CTable striped>
                 <CTableHead className="text-center">
                   <CTableRow>
-                    <CTableHeaderCell scope="col"></CTableHeaderCell>
+                    <CTableHeaderCell scope="col">Id</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Alumno</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Grupo</CTableHeaderCell>
                     <CTableHeaderCell scope="col">Reportes pendientes</CTableHeaderCell>
@@ -136,13 +114,13 @@ const Range = () => {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEye} className="me-2" /> Ver detalles
+                            <FontAwesomeIcon icon={faEye} className="me-2" /> Vér detalles alumno
                           </Dropdown.Item>
                           <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar
-                          </Dropdown.Item>
-                          <Dropdown.Item className="text-danger">
-                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
+                            <Link to={{ pathname: '/diary/studentDiary' }}>
+                              <FontAwesomeIcon href="" icon={faAddressBook} className="me-2" />
+                              Vér libreta
+                            </Link>
                           </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
@@ -174,13 +152,10 @@ const Range = () => {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEye} className="me-2" /> Ver detalles
+                            <FontAwesomeIcon icon={faEye} className="me-2" /> Vér detalles alumno
                           </Dropdown.Item>
                           <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar
-                          </Dropdown.Item>
-                          <Dropdown.Item className="text-danger">
-                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
+                            <FontAwesomeIcon icon={faAddressBook} className="me-2" /> Vér libreta
                           </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
@@ -212,13 +187,10 @@ const Range = () => {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEye} className="me-2" /> Ver detalles
+                            <FontAwesomeIcon icon={faEye} className="me-2" /> Vér detalles alumno
                           </Dropdown.Item>
                           <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar
-                          </Dropdown.Item>
-                          <Dropdown.Item className="text-danger">
-                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
+                            <FontAwesomeIcon icon={faAddressBook} className="me-2" /> Vér libreta
                           </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
@@ -239,4 +211,9 @@ const Range = () => {
   )
 }
 
-export default Range
+const filterStyle = {
+  marginLeft: '20px',
+  marginRight: '10px',
+  marginBottom: '15px',
+}
+export default SearchDiary

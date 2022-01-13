@@ -2,7 +2,8 @@ import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Reports = React.lazy(() => import('./views/reports/dailyReport'))
-const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
+const Diary = React.lazy(() => import('./views/libreta/VirtualDiary'))
+const reportSummary = React.lazy(() => import('./views/libreta/StudentDiary'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -51,11 +52,12 @@ const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
+  { path: '/', exact: true, name: 'Inicio' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/theme', name: 'Theme', component: Reports, exact: true },
-  { path: '/theme/reports', name: 'Reports', component: Reports },
-  { path: '/theme/typography', name: 'Typography', component: Typography },
+  { path: '/inicio', name: 'Theme', component: Reports, exact: true },
+  { path: '/reports', name: 'Enviar reportes', component: Reports },
+  { path: '/diary', name: 'Consultar libreta', component: Diary, exact: true },
+  { path: '/diary/studentDiary', name: 'Consultar libreta', component: reportSummary },
   { path: '/base', name: 'Base', component: Cards, exact: true },
   { path: '/base/accordion', name: 'Accordion', component: Accordion },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },
