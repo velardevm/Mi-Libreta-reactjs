@@ -8,6 +8,7 @@ import {
   CFormFloating,
   CFormLabel,
   CFormTextarea,
+  CFormInput,
 } from '@coreui/react'
 import TextField from '@mui/material/TextField'
 import CIcon from '@coreui/icons-react'
@@ -15,6 +16,11 @@ import DesktopTimePicker from '@mui/lab/DesktopTimePicker'
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import Stack from '@mui/material/Stack'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
+import TagFacesIcon from '@mui/icons-material/TagFaces'
+import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied'
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied'
 import {
   cibCcAmex,
   cibCcApplePay,
@@ -54,47 +60,34 @@ const tableExample = [
 
 const FoodReport = () => {
   const [value, setValue] = React.useState(new Date('2018-01-01T00:00:00.000Z'))
+  const [mood, setMood] = React.useState(0)
   const handleChange = (newValue) => {
+    setMood(newValue)
+  }
+  const handleMood = (event, newValue) => {
     setValue(newValue)
   }
   return (
     <CRow>
       <CCol xs={6} sm={6} lg={6}>
         <CFormLabel htmlFor="inputCity">Fecha</CFormLabel>
-        <Stack component="form" noValidate spacing={3}>
-          <TextField
-            id="date"
-            type="date"
-            defaultValue="2017-05-24"
-            sx={{ width: 220 }}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-        </Stack>
+        <CFormInput type="date" id="calendar" style={{ marginBottom: '7px' }} />
       </CCol>
       <CCol xs={6} sm={6} lg={6}>
         <CFormLabel htmlFor="inputCity">Hora</CFormLabel>
-        <Stack component="form" noValidate spacing={3}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <Stack spacing={3}>
-              <DesktopTimePicker
-                value={value}
-                onChange={(newValue) => {
-                  setValue(newValue)
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </Stack>
-          </LocalizationProvider>
-        </Stack>
+        <CFormInput type="time" id="calendar" style={{ marginBottom: '7px' }} />
       </CCol>
       <CCol xs={6} sm={6} lg={6}>
-        <CFormLabel style={{ marginTop: '20px' }}>Hoy estuve</CFormLabel>
+        <CFormLabel style={{ marginTop: '20px' }}>Hoy estuve:</CFormLabel>
+        <Tabs value={value} onChange={handleMood} aria-label="icon label tabs example">
+          <Tab icon={<TagFacesIcon fontSize="large" />} label="FELIZ" />
+          <Tab icon={<SentimentDissatisfiedIcon fontSize="large" />} label="ENOJADO" />
+          <Tab icon={<SentimentVeryDissatisfiedIcon fontSize="large" />} label="TRISTE" />
+        </Tabs>
       </CCol>
       <CCol xs={6} sm={6} lg={6}>
         <CFormLabel style={{ marginTop: '20px' }}>Cantidad de comida</CFormLabel>
-        <CButtonGroup role="group" class="text-center" style={{ marginBottom: '10px' }}>
+        <CButtonGroup role="group" class="text-center" style={{ marginTop: '20px' }}>
           <CButton color="primary" variant="outline">
             Mucho
           </CButton>

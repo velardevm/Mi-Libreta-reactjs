@@ -9,6 +9,7 @@ import {
   CFormLabel,
   CFormTextarea,
   CFormCheck,
+  CFormInput,
   CFormSelect,
 } from '@coreui/react'
 import TextField from '@mui/material/TextField'
@@ -95,33 +96,17 @@ const NapReport = () => {
         <CFormLabel style={{ marginTop: '20px' }}>Hoy estuve</CFormLabel>
       </CCol>
       <CCol xs={6} sm={6} lg={6}>
-        <CFormLabel style={{ marginTop: '20px' }}>Siesta</CFormLabel>
-        <CButtonGroup role="group" class="text-center">
-          <CFormCheck
-            inline
-            type="radio"
-            name="inlineRadioOptions"
-            id="inlineCheckbox1"
-            value="option1"
-            label="Pipi"
-          />
-          <CFormCheck
-            inline
-            type="radio"
-            name="inlineRadioOptions"
-            id="inlineCheckbox2"
-            value="option2"
-            label="Popo"
-          />
-          <CFormCheck
-            inline
-            type="radio"
-            name="inlineRadioOptions"
-            id="inlineCheckbox2"
-            value="option2"
-            label="Ninguno"
-          />
-        </CButtonGroup>
+        <CFormLabel style={{ marginTop: '20px' }}>Horario de siesta</CFormLabel>
+        <CRow>
+          <CCol md={6}>
+            <CFormLabel>De:</CFormLabel>
+            <CFormInput type="time" id="calendar" style={{ marginBottom: '7px' }} />
+          </CCol>
+          <CCol md={6}>
+            <CFormLabel>A:</CFormLabel>
+            <CFormInput type="time" id="calendar" style={{ marginBottom: '7px' }} />
+          </CCol>
+        </CRow>
       </CCol>
       <CCol xs={12} sm={12} lg={12} style={{ marginTop: '25px' }}>
         <CFormLabel>Observaciones de mi maestra</CFormLabel>

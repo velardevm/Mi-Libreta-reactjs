@@ -162,6 +162,11 @@ const Reports = () => {
               <AcademicReport />
             )}
           </CCardBody>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+            <CButton style={{ marginBottom: '24px' }} color="primary">
+              Guardar cambios
+            </CButton>
+          </div>
         </CCard>
       </CCol>
     </CRow>

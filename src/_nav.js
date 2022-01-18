@@ -18,7 +18,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Reporte diario',
-    to: '/dashboard',
+    to: '/reporteDiario',
     icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
     badge: {
       color: 'info',
@@ -28,13 +28,13 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Enviar reportes',
-    to: '/reports',
+    to: '/enviarReportes',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
     name: 'Consultar libreta',
-    to: '/diary',
+    to: '/consultarLibreta',
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
   {

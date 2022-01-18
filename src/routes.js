@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
-const Reports = React.lazy(() => import('./views/reports/dailyReport'))
-const Diary = React.lazy(() => import('./views/libreta/VirtualDiary'))
-const reportSummary = React.lazy(() => import('./views/libreta/StudentDiary'))
+const DailyReport = React.lazy(() => import('./views/reporteDiario/DailyReport'))
+const Reports = React.lazy(() => import('./views/reporteDiario/Reports'))
+const VirtualDiary = React.lazy(() => import('./views/consultarLIbreta/VirtualDiary'))
+const reportSummary = React.lazy(() => import('./views/consultarLIbreta/StudentReports'))
+const StudentDetails = React.lazy(() => import('./views/consultarLIbreta/StudentDetails'))
+const SendReports = React.lazy(() => import('./views/envioReportes/SendReports'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -53,11 +55,12 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
   { path: '/', exact: true, name: 'Inicio' },
-  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/inicio', name: 'Theme', component: Reports, exact: true },
-  { path: '/reports', name: 'Enviar reportes', component: Reports },
-  { path: '/diary', name: 'Consultar libreta', component: Diary, exact: true },
-  { path: '/diary/studentDiary', name: 'Consultar libreta', component: reportSummary },
+  { path: '/reporteDiario', name: 'Reporte Diario', component: DailyReport, exact: true },
+  { path: '/reporteDiario/reportes', exact: true, name: 'Reportes', component: Reports },
+  { path: '/enviarReportes', name: 'Enviar reportes', component: SendReports },
+  { path: '/consultarLibreta', name: 'Consultar libreta', component: VirtualDiary, exact: true },
+  { path: '/consultarLibreta/estudianteLibreta', name: 'Mi libreta', component: reportSummary },
+  { path: '/consultarLibreta/estudianteDetalles', name: 'Detalles', component: StudentDetails },
   { path: '/base', name: 'Base', component: Cards, exact: true },
   { path: '/base/accordion', name: 'Accordion', component: Accordion },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },

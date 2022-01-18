@@ -30,6 +30,7 @@ import { CChartLine } from '@coreui/react-chartjs'
 import { DocsExample } from 'src/components'
 import { getStyle, hexToRgba } from '@coreui/utils'
 import CIcon from '@coreui/icons-react'
+import { Link } from 'react-router-dom'
 import {
   cibCcAmex,
   cibCcApplePay,
@@ -203,7 +204,10 @@ const Dashboard = () => {
             </CCol>
             <CCol sm={7} className="d-none d-md-block">
               <CButton color="primary" className="float-end">
-                <CIcon icon={cilCloudDownload} />
+                <Link to={{ pathname: '/reporteDiario/reportes' }}>
+                  <CIcon icon={cilCloudDownload} />
+                  Vér libreta
+                </Link>
               </CButton>
               <CButtonGroup className="float-end me-3">
                 {['Day', 'Month', 'Year'].map((value) => (
