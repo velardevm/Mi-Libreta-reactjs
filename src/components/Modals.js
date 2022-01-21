@@ -17,7 +17,9 @@ const Modal = (props) => {
   const { message, modalBody } = props
   return (
     <>
-      <CButton onClick={() => setVisible(!visible)}>{message}</CButton>
+      <CButton style={buttonStyle} onClick={() => setVisible(!visible)}>
+        {message}
+      </CButton>
       <CModal visible={visible} onClose={() => setVisible(false)}>
         <CModalHeader>
           <CModalTitle>¡Advertencia!</CModalTitle>
@@ -32,6 +34,11 @@ const Modal = (props) => {
       </CModal>
     </>
   )
+}
+
+const buttonStyle = {
+  marginTop: '15px',
+  marginBottom: '15px',
 }
 
 Modal.propTypes = {

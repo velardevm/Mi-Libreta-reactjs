@@ -22,7 +22,6 @@ import {
   CFormCheck,
   CFormSelect,
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers, faEllipsisH, faEye, faAddressBook } from '@fortawesome/free-solid-svg-icons'

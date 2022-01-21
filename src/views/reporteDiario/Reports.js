@@ -19,11 +19,8 @@ import {
   CTableRow,
   CFormCheck,
 } from '@coreui/react'
-import { DocsExample } from 'src/components'
 import CIcon from '@coreui/icons-react'
 import Button from '@mui/material/Button'
-import ButtonGroup from '@mui/material/ButtonGroup'
-import DeleteIcon from '@mui/icons-material/Delete'
 import FoodReport from '../../components/reports/StudentFood'
 import DiaperReport from '../../components/reports/StudentDiaper'
 import NapReport from '../../components/reports/StudentNap'
@@ -37,7 +34,6 @@ import MenuBookIcon from '@mui/icons-material/MenuBook'
 import { cibCcMastercard, cifUs, cilPeople } from '@coreui/icons'
 
 import avatar1 from 'src/assets/images/avatars/1.jpg'
-import { boxSizing } from '@mui/system'
 
 const tableExample = [
   {
@@ -59,7 +55,7 @@ const tableExample = [
 ]
 
 const Reports = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
   return (
     <CRow>
       <CCol lg={5}>
@@ -114,7 +110,7 @@ const Reports = () => {
                 <AccessibilityNewIcon fontSize="small" />
               </Button>
               <CButton color="info" variant="outline" onClick={() => setCount(2)}>
-                Pañales
+                Cambio de pañales
               </CButton>
             </CButtonGroup>
             <CButtonGroup style={btnform}>
@@ -146,22 +142,17 @@ const Reports = () => {
       </CCol>
       <CCol lg={7}>
         <CCard className="mb-4">
-          <CCardHeader>
-            <strong>Formulario</strong> <small>Alimentacion y estado de animo</small>
-          </CCardHeader>
-          <CCardBody>
-            {count === 1 ? (
-              <FoodReport />
-            ) : count === 2 ? (
-              <DiaperReport />
-            ) : count === 3 ? (
-              <NapReport />
-            ) : count === 4 ? (
-              <BathReport />
-            ) : (
-              <AcademicReport />
-            )}
-          </CCardBody>
+          {count === 1 ? (
+            <FoodReport />
+          ) : count === 2 ? (
+            <DiaperReport />
+          ) : count === 3 ? (
+            <NapReport />
+          ) : count === 4 ? (
+            <BathReport />
+          ) : (
+            <AcademicReport />
+          )}
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
             <CButton style={{ marginBottom: '24px' }} color="primary">
               Guardar cambios

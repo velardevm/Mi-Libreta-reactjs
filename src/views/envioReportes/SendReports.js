@@ -22,6 +22,7 @@ import {
   CFormCheck,
   CFormSelect,
 } from '@coreui/react'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers, faEllipsisH, faEye, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap'
@@ -113,10 +114,22 @@ const SendReports = () => {
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEye} className="me-2" /> Vér libreta
+                            <Link
+                              style={{ textDecoration: 'none', color: '#4F5D73' }}
+                              to={{ pathname: '/consultarLibreta/estudianteLibreta' }}
+                            >
+                              <FontAwesomeIcon href="" icon={faEye} className="me-2" />
+                              Vér libreta
+                            </Link>
                           </Dropdown.Item>
                           <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar reportes
+                            <Link
+                              style={{ textDecoration: 'none', color: '#4F5D73' }}
+                              to={{ pathname: '/reporteDiario/reportes' }}
+                            >
+                              <FontAwesomeIcon href="" icon={faEdit} className="me-2" />
+                              Editar reportes
+                            </Link>
                           </Dropdown.Item>
                           <Dropdown.Item className="text-danger">
                             <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar

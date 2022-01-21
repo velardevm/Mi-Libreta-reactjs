@@ -36,8 +36,8 @@ const AppHeader = () => {
         </CHeaderBrand>
         <CHeaderNav className="d-none d-md-flex me-auto">
           <CNavItem>
-            <CNavLink to="/dashboard" component={NavLink} activeClassName="active">
-              Dashboard
+            <CNavLink to="/reporteDiario" component={NavLink} activeClassName="active">
+              Reporte diario
             </CNavLink>
           </CNavItem>
           <CNavItem>
