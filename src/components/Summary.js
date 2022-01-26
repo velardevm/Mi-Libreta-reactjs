@@ -13,12 +13,14 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from '@coreui/react'
+import SummaryReportTitle from './SummaryReportTitle'
 import SummaryHeaders from './SummaryHeaders'
 
 const Summary = () => {
   return (
     <CCol md={12}>
-      <SummaryHeaders sectionTitle={'Mis alimentos del dia'}>
+      <SummaryHeaders title="New title" />
+      <SummaryReportTitle sectionTitle={'Mis alimentos del dia'}>
         <CTable striped hover>
           <CTableHead>
             <CTableRow>
@@ -26,7 +28,6 @@ const Summary = () => {
               <CTableHeaderCell scope="col">Cantidad</CTableHeaderCell>
               <CTableHeaderCell scope="col">Observaciones</CTableHeaderCell>
               <CTableHeaderCell scope="col">Notas</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Acciones</CTableHeaderCell>
             </CTableRow>
           </CTableHead>
           <CTableBody>
@@ -52,8 +53,8 @@ const Summary = () => {
             </CTableRow>
           </CTableBody>
         </CTable>
-      </SummaryHeaders>
-      <SummaryHeaders sectionTitle={'Mis cambios de pañales'}>
+      </SummaryReportTitle>
+      <SummaryReportTitle sectionTitle={'Mis cambios de pañales'}>
         <CTable striped hover>
           <CTableHead>
             <CTableRow>
@@ -61,7 +62,6 @@ const Summary = () => {
               <CTableHeaderCell scope="col">Cantidad</CTableHeaderCell>
               <CTableHeaderCell scope="col">Observaciones</CTableHeaderCell>
               <CTableHeaderCell scope="col">Notas</CTableHeaderCell>
-              <CTableHeaderCell scope="col">Acciones</CTableHeaderCell>
             </CTableRow>
           </CTableHead>
           <CTableBody>
@@ -87,8 +87,8 @@ const Summary = () => {
             </CTableRow>
           </CTableBody>
         </CTable>
-      </SummaryHeaders>
-      <SummaryHeaders sectionTitle={'Mi siesta del dia'}>
+      </SummaryReportTitle>
+      <SummaryReportTitle sectionTitle={'Mi siesta del dia'}>
         <CTable striped hover>
           <CTableHead>
             <CTableRow>
@@ -118,8 +118,8 @@ const Summary = () => {
             </CTableRow>
           </CTableBody>
         </CTable>
-      </SummaryHeaders>
-      <SummaryHeaders sectionTitle={'Hoy hice'}>
+      </SummaryReportTitle>
+      <SummaryReportTitle sectionTitle={'Hoy hice'}>
         <CTable striped hover>
           <CTableHead>
             <CTableRow>
@@ -149,7 +149,7 @@ const Summary = () => {
             </CTableRow>
           </CTableBody>
         </CTable>
-      </SummaryHeaders>
+      </SummaryReportTitle>
     </CCol>
   )
 }

@@ -6,6 +6,7 @@ const VirtualDiary = React.lazy(() => import('./views/consultarLIbreta/VirtualDi
 const reportSummary = React.lazy(() => import('./views/consultarLIbreta/StudentReports'))
 const StudentDetails = React.lazy(() => import('./views/consultarLIbreta/StudentDetails'))
 const SendReports = React.lazy(() => import('./views/envioReportes/SendReports'))
+const Students = React.lazy(() => import('./views/alumnos/Students'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -61,6 +62,7 @@ const routes = [
   { path: '/consultarLibreta', name: 'Consultar libreta', component: VirtualDiary, exact: true },
   { path: '/consultarLibreta/estudianteLibreta', name: 'Mi libreta', component: reportSummary },
   { path: '/consultarLibreta/estudianteDetalles', name: 'Detalles', component: StudentDetails },
+  { path: '/alumnos', name: 'Alumnos', component: Students },
   { path: '/base', name: 'Base', component: Cards, exact: true },
   { path: '/base/accordion', name: 'Accordion', component: Accordion },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },

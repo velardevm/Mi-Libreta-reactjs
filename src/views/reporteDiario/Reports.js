@@ -58,7 +58,7 @@ const Reports = () => {
   const [count, setCount] = useState(1)
   return (
     <CRow>
-      <CCol lg={5}>
+      <CCol lg={4}>
         <CCard className="mb-4">
           <CCardHeader>
             <strong>Reporte de alimentos</strong> <small></small>
@@ -77,14 +77,12 @@ const Reports = () => {
                 {tableExample.map((item, index) => (
                   <CTableRow v-for="item in tableItems" key={index}>
                     <CTableDataCell className="text-center">
-                      <CAvatar size="md" src={item.avatar.src} status={item.avatar.status} />
+                      <CAvatar size="lg" src={item.avatar.src} />
                     </CTableDataCell>
                     <CTableDataCell>
                       <div>{item.user.name}</div>
-                      <div className="small text-medium-emphasis">
-                        <span>{item.user.new ? 'New' : 'Recurring'}</span> | Registered:{' '}
-                        {item.user.registered}
-                      </div>
+                      <div className="small text-medium-emphasis">{item.user.registered}</div>
+                      <div className="small text-medium-emphasis">Cumpleaños: 02/06/2019</div>
                     </CTableDataCell>
                   </CTableRow>
                 ))}
@@ -102,7 +100,7 @@ const Reports = () => {
                 <RestaurantIcon fontSize="small" />
               </Button>
               <CButton color="info" variant="outline" onClick={() => setCount(1)}>
-                Alimentacion y estado de animo
+                Alimentacion
               </CButton>
             </CButtonGroup>
             <CButtonGroup style={btnform}>
@@ -114,10 +112,10 @@ const Reports = () => {
               </CButton>
             </CButtonGroup>
             <CButtonGroup style={btnform}>
-              <Button variant="outlined" size="sm">
+              <Button color="warning" variant="outlined" size="sm">
                 <AirlineSeatFlatAngledIcon fontSize="small" />
               </Button>
-              <CButton color="info" variant="outline" onClick={() => setCount(3)}>
+              <CButton color="warning" variant="outline" onClick={() => setCount(3)}>
                 Siestas
               </CButton>
             </CButtonGroup>
@@ -130,17 +128,17 @@ const Reports = () => {
               </CButton>
             </CButtonGroup>
             <CButtonGroup style={btnform}>
-              <Button variant="outlined" size="sm">
+              <Button color="warning" variant="outlined" size="sm">
                 <MenuBookIcon fontSize="small" />
               </Button>
-              <CButton color="info" variant="outline" onClick={() => setCount(5)}>
+              <CButton color="warning" variant="outline" onClick={() => setCount(5)}>
                 Observaciones academicas
               </CButton>
             </CButtonGroup>
           </CCardBody>
         </CCard>
       </CCol>
-      <CCol lg={7}>
+      <CCol lg={8}>
         <CCard className="mb-4">
           {count === 1 ? (
             <FoodReport />
@@ -153,8 +151,11 @@ const Reports = () => {
           ) : (
             <AcademicReport />
           )}
-          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-            <CButton style={{ marginBottom: '24px' }} color="primary">
+          <div
+            style={{ marginTop: '19px' }}
+            className="d-grid gap-2 d-md-flex justify-content-md-end"
+          >
+            <CButton style={{ marginBottom: '25px', marginRight: '18px' }} color="primary">
               Guardar cambios
             </CButton>
           </div>

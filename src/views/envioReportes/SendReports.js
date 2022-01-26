@@ -24,7 +24,13 @@ import {
 } from '@coreui/react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUsers, faEllipsisH, faEye, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
+import {
+  faUsers,
+  faEllipsisH,
+  faEye,
+  faCheckCircle,
+  faEdit,
+} from '@fortawesome/free-solid-svg-icons'
 import { Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap'
 import Modal from 'src/components/Modals'
 
@@ -65,167 +71,161 @@ const SendReports = () => {
           </CCardBody>
         </CCard>
       </CCol>
-      <CRow>
-        <CCol xs={12}>
-          <CFormCheck style={filterStyle} id="filter" label="" defaultChecked />
-          <FontAwesomeIcon icon={faUsers} className="me-2" /> Ordenar alfabeticamente
-        </CCol>
-        <CCol xs={12}>
-          <CCard className="mb-4">
-            <CCardHeader>
-              <strong>Maternal / A</strong> <small>Grupo</small>
-            </CCardHeader>
-            <CCardBody>
-              <CTable striped>
-                <CTableHead className="text-center">
-                  <CTableRow>
-                    <CTableHeaderCell scope="col"></CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Alumno</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Grupo</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Reportes pendientes</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Reportes completados</CTableHeaderCell>
-                    <CTableHeaderCell scope="col">Acciones</CTableHeaderCell>
-                  </CTableRow>
-                </CTableHead>
-                <CTableBody className="text-center">
-                  <CTableRow>
-                    <CTableHeaderCell scope="row">
-                      <CFormCheck id="flexCheckDefault" label="" />
-                    </CTableHeaderCell>
-                    <CTableDataCell className="text-center">Mark</CTableDataCell>
-                    <CTableDataCell>Maternal / A</CTableDataCell>
-                    <CTableDataCell className="text-success">
-                      <strong>0</strong>
-                    </CTableDataCell>
-                    <CTableDataCell className="text-success">
-                      <strong>5</strong>
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      <Dropdown as={ButtonGroup}>
-                        <Dropdown.Toggle
-                          as={Button}
-                          split
-                          variant="link"
-                          className="text-dark m-0 p-0"
-                        >
-                          <span className="icon icon-lg">
-                            <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
-                          </span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                          <Dropdown.Item>
-                            <Link
-                              style={{ textDecoration: 'none', color: '#4F5D73' }}
-                              to={{ pathname: '/consultarLibreta/estudianteLibreta' }}
-                            >
-                              <FontAwesomeIcon href="" icon={faEye} className="me-2" />
-                              Vér libreta
-                            </Link>
-                          </Dropdown.Item>
-                          <Dropdown.Item>
-                            <Link
-                              style={{ textDecoration: 'none', color: '#4F5D73' }}
-                              to={{ pathname: '/reporteDiario/reportes' }}
-                            >
-                              <FontAwesomeIcon href="" icon={faEdit} className="me-2" />
-                              Editar reportes
-                            </Link>
-                          </Dropdown.Item>
-                          <Dropdown.Item className="text-danger">
-                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </CTableDataCell>
-                  </CTableRow>
-                  <CTableRow>
-                    <CTableHeaderCell scope="row">
-                      <CFormCheck id="flexCheckDefault" label="" />
-                    </CTableHeaderCell>
-                    <CTableDataCell>Jacob</CTableDataCell>
-                    <CTableDataCell>Maternal / A</CTableDataCell>
-                    <CTableDataCell className="text-warning">
-                      <strong>2</strong>
-                    </CTableDataCell>
-                    <CTableDataCell className="text-warning">
-                      <strong>3</strong>
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      <Dropdown as={ButtonGroup}>
-                        <Dropdown.Toggle
-                          as={Button}
-                          split
-                          variant="link"
-                          className="text-dark m-0 p-0"
-                        >
-                          <span className="icon icon-lg">
-                            <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
-                          </span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                          <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEye} className="me-2" /> Vér libreta
-                          </Dropdown.Item>
-                          <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar reportes
-                          </Dropdown.Item>
-                          <Dropdown.Item className="text-danger">
-                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </CTableDataCell>
-                  </CTableRow>
-                  <CTableRow>
-                    <CTableHeaderCell scope="row">
-                      <CFormCheck id="flexCheckDefault" label="" />
-                    </CTableHeaderCell>
-                    <CTableDataCell>Larry the Bird</CTableDataCell>
-                    <CTableDataCell>Maternal / A</CTableDataCell>
-                    <CTableDataCell className="text-warning">
-                      <strong>3</strong>
-                    </CTableDataCell>
-                    <CTableDataCell className="text-warning">
-                      <strong>2</strong>
-                    </CTableDataCell>
-                    <CTableDataCell>
-                      <Dropdown as={ButtonGroup}>
-                        <Dropdown.Toggle
-                          as={Button}
-                          split
-                          variant="link"
-                          className="text-dark m-0 p-0"
-                        >
-                          <span className="icon icon-lg">
-                            <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
-                          </span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                          <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEye} className="me-2" /> Vér libreta
-                          </Dropdown.Item>
-                          <Dropdown.Item>
-                            <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar reportes
-                          </Dropdown.Item>
-                          <Dropdown.Item className="text-danger">
-                            <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </CTableDataCell>
-                  </CTableRow>
-                </CTableBody>
-              </CTable>
-            </CCardBody>
-          </CCard>
-          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-            <Modal
-              message={'Enviar reportes seleccionados'}
-              modalBody={'¿Está seguro de enviar los reportes seleccionados?'}
-            />
-          </div>
-        </CCol>
-      </CRow>
+      <CCol xs={12}>
+        <CFormCheck style={filterStyle} id="filter" label="" defaultChecked />
+        <FontAwesomeIcon icon={faUsers} className="me-2" /> Ordenar alfabeticamente
+        <CFormCheck style={filterStyle} id="filter" label="" />
+        <FontAwesomeIcon icon={faCheckCircle} className="me-2" /> Seleccionar todos
+      </CCol>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <strong>Maternal / A</strong> <small>Grupo</small>
+          </CCardHeader>
+          <CCardBody>
+            <CTable striped>
+              <CTableHead className="text-center">
+                <CTableRow>
+                  <CTableHeaderCell scope="col"></CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Alumno</CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Grupo</CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Reportes pendientes</CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Reportes completados</CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Acciones</CTableHeaderCell>
+                </CTableRow>
+              </CTableHead>
+              <CTableBody className="text-center">
+                <CTableRow>
+                  <CTableHeaderCell scope="row">
+                    <CFormCheck id="flexCheckDefault" label="" />
+                  </CTableHeaderCell>
+                  <CTableDataCell className="text-center">Jacob</CTableDataCell>
+                  <CTableDataCell>Maternal / A</CTableDataCell>
+                  <CTableDataCell className="text-success">
+                    <strong>0</strong>
+                  </CTableDataCell>
+                  <CTableDataCell className="text-success">
+                    <strong>5</strong>
+                  </CTableDataCell>
+                  <CTableDataCell>
+                    <Dropdown as={ButtonGroup}>
+                      <Dropdown.Toggle
+                        as={Button}
+                        split
+                        variant="link"
+                        className="text-dark m-0 p-0"
+                      >
+                        <span className="icon icon-lg">
+                          <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+                        </span>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item>
+                          <Link
+                            style={{ textDecoration: 'none', color: '#4F5D73' }}
+                            to={{ pathname: '/consultarLibreta/estudianteLibreta' }}
+                          >
+                            <FontAwesomeIcon href="" icon={faEye} className="me-2" />
+                            Ver libreta
+                          </Link>
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                          <Link
+                            style={{ textDecoration: 'none', color: '#4F5D73' }}
+                            to={{ pathname: '/reporteDiario/reportes' }}
+                          >
+                            <FontAwesomeIcon href="" icon={faEdit} className="me-2" />
+                            Editar reportes
+                          </Link>
+                        </Dropdown.Item>
+                        {/*                         <Dropdown.Item className="text-danger">
+                          <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Borrar
+                        </Dropdown.Item> */}
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </CTableDataCell>
+                </CTableRow>
+                <CTableRow>
+                  <CTableHeaderCell scope="row">
+                    <CFormCheck id="flexCheckDefault" label="" />
+                  </CTableHeaderCell>
+                  <CTableDataCell>Larry Tom</CTableDataCell>
+                  <CTableDataCell>Maternal / A</CTableDataCell>
+                  <CTableDataCell className="text-warning">
+                    <strong>2</strong>
+                  </CTableDataCell>
+                  <CTableDataCell className="text-warning">
+                    <strong>3</strong>
+                  </CTableDataCell>
+                  <CTableDataCell>
+                    <Dropdown as={ButtonGroup}>
+                      <Dropdown.Toggle
+                        as={Button}
+                        split
+                        variant="link"
+                        className="text-dark m-0 p-0"
+                      >
+                        <span className="icon icon-lg">
+                          <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+                        </span>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item>
+                          <FontAwesomeIcon icon={faEye} className="me-2" /> Ver libreta
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                          <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar reportes
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </CTableDataCell>
+                </CTableRow>
+                <CTableRow>
+                  <CTableHeaderCell scope="row">
+                    <CFormCheck id="flexCheckDefault" label="" />
+                  </CTableHeaderCell>
+                  <CTableDataCell>Mark Jhonson</CTableDataCell>
+                  <CTableDataCell>Maternal / A</CTableDataCell>
+                  <CTableDataCell className="text-warning">
+                    <strong>3</strong>
+                  </CTableDataCell>
+                  <CTableDataCell className="text-warning">
+                    <strong>2</strong>
+                  </CTableDataCell>
+                  <CTableDataCell>
+                    <Dropdown as={ButtonGroup}>
+                      <Dropdown.Toggle
+                        as={Button}
+                        split
+                        variant="link"
+                        className="text-dark m-0 p-0"
+                      >
+                        <span className="icon icon-lg">
+                          <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+                        </span>
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item>
+                          <FontAwesomeIcon icon={faEye} className="me-2" /> Ver libreta
+                        </Dropdown.Item>
+                        <Dropdown.Item>
+                          <FontAwesomeIcon icon={faEdit} className="me-2" /> Editar reportes
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </CTableDataCell>
+                </CTableRow>
+              </CTableBody>
+            </CTable>
+          </CCardBody>
+        </CCard>
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+          <Modal
+            message={'Enviar reportes seleccionados'}
+            modalBody={'¿Está seguro de enviar los reportes seleccionados?'}
+          />
+        </div>
+      </CCol>
     </CRow>
   )
 }

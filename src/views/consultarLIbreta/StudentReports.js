@@ -24,7 +24,7 @@ import { cibCcMastercard, cifUs, cilPeople } from '@coreui/icons'
 import avatar1 from 'src/assets/images/avatars/1.jpg'
 import Summary from 'src/components/Summary'
 import Calendar from 'src/components/Calendar'
-import SummaryHeaders from 'src/components/SummaryHeaders'
+import SummaryReportTitle from 'src/components/SummaryHeaders'
 
 const tableExample = [
   {
@@ -69,11 +69,12 @@ const StudentDiary = () => {
                 {tableExample.map((item, index) => (
                   <CTableRow v-for="item in tableItems" key={index}>
                     <CTableDataCell className="text-center">
-                      <CAvatar size="md" src={item.avatar.src} status={item.avatar.status} />
+                      <CAvatar size="lg" src={item.avatar.src} />
                     </CTableDataCell>
                     <CTableDataCell>
                       <div>{item.user.name}</div>
                       <div className="small text-medium-emphasis">{item.user.registered}</div>
+                      <div className="small text-medium-emphasis">Cumpleaños: 02/06/2019</div>
                     </CTableDataCell>
                   </CTableRow>
                 ))}
@@ -97,6 +98,7 @@ const StudentDiary = () => {
           </CCardHeader>
           <CCardBody>
             <Summary />
+            {/*             <SummaryReportTitle title={'New title'} /> */}
           </CCardBody>
         </CCard>
       </CCol>

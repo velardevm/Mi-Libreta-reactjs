@@ -58,30 +58,17 @@ const DiaperReport = () => {
           <CCol xs={6} sm={6} lg={6}>
             <CFormLabel style={{ marginTop: '20px' }}>Cambio de pañal</CFormLabel>
             <CButtonGroup role="group" class="text-center" style={{ marginTop: '25px' }}>
-              <CFormCheck
-                inline
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineCheckbox1"
-                value="option1"
-                label="Pipi"
-              />
-              <CFormCheck
-                inline
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineCheckbox2"
-                value="option2"
-                label="Popo"
-              />
-              <CFormCheck
-                inline
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineCheckbox2"
-                value="option2"
-                label="Ninguno"
-              />
+              <CButtonGroup role="group" class="text-center">
+                <CButton color="primary" variant="outline">
+                  Pipi
+                </CButton>
+                <CButton color="primary" variant="outline" style={{ marginLeft: '10px' }}>
+                  Popo
+                </CButton>
+                <CButton color="primary" variant="outline" style={{ marginLeft: '10px' }}>
+                  Ninguno
+                </CButton>
+              </CButtonGroup>
             </CButtonGroup>
           </CCol>
           <CCol xs={12} sm={12} lg={12} style={{ marginTop: '25px' }}>

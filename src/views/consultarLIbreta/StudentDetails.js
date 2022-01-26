@@ -72,6 +72,7 @@ const StudentDetails = () => {
   const [activeKey, setActiveKey] = useState(1)
   const [tabValue, setTabValue] = useState(0)
   const [value, setValue] = React.useState(0)
+  const [studentList, setStudentList] = React.useState(false)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -131,7 +132,7 @@ const StudentDetails = () => {
               <Col xs={12} xl={4}>
                 <Row>
                   <Col xs={12}>
-                    <ProfileCardWidget />
+                    <ProfileCardWidget studentList={studentList} />
                   </Col>
                 </Row>
               </Col>

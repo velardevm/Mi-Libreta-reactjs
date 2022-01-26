@@ -5,11 +5,11 @@ import {
   cilCalculator,
   cilChartPie,
   cilCursor,
-  cilDrop,
+  cilSchool,
   cilNotes,
   cilPencil,
   cilSettings,
-  cilSpeedometer,
+  cilGroup,
   cilStar,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
@@ -38,8 +38,20 @@ const _nav = [
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
   {
-    component: CNavGroup,
+    component: CNavItem,
     name: 'Alumnos',
+    to: '/alumnos',
+    icon: <CIcon icon={cilSchool} customClassName="nav-icon" />,
+  },
+  /*   {
+      component: CNavItem,
+      name: 'Grupos',
+      to: '/alumnos',
+      icon: <CIcon icon={cilGroup} customClassName="nav-icon" />,
+    }, */
+  {
+    component: CNavGroup,
+    name: 'Componentes',
     to: '/base',
     icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
     items: [
@@ -140,7 +152,7 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Grupos',
+    name: 'Forms',
     icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
     items: [
       {

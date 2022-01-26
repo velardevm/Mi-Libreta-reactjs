@@ -206,7 +206,7 @@ const Dashboard = () => {
               <CButton color="primary" className="float-end">
                 <Link to={{ pathname: '/reporteDiario/reportes' }}>
                   <CIcon icon={cilCloudDownload} />
-                  Vér libreta
+                  Ver libreta
                 </Link>
               </CButton>
               <CButtonGroup className="float-end me-3">

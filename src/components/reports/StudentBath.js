@@ -57,22 +57,12 @@ const BathReport = () => {
           <CCol xs={6} sm={6} lg={6}>
             <CFormLabel style={{ marginTop: '20px' }}>¿Fui al Baño?</CFormLabel>
             <CButtonGroup role="group" class="text-center" style={{ marginTop: '25px' }}>
-              <CFormCheck
-                inline
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineCheckbox1"
-                value="option1"
-                label="SI"
-              />
-              <CFormCheck
-                inline
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineCheckbox2"
-                value="option2"
-                label="NO"
-              />
+              <CButton color="primary" variant="outline">
+                SÍ
+              </CButton>
+              <CButton color="primary" variant="outline" style={{ marginLeft: '10px' }}>
+                NO
+              </CButton>
             </CButtonGroup>
           </CCol>
           <CCol xs={12} sm={12} lg={12} style={{ marginTop: '25px' }}>
