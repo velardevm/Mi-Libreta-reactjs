@@ -3,8 +3,6 @@ import React from 'react'
 import { CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilHappy, cilMediaPlay, cilCode } from '@coreui/icons'
-import packageJson from '../../package.json'
-import Summary from './Summary'
 
 const SummaryReportTitle = (props) => {
   const { children, sectionTitle } = props

@@ -7,6 +7,9 @@ const reportSummary = React.lazy(() => import('./views/consultarLIbreta/StudentR
 const StudentDetails = React.lazy(() => import('./views/consultarLIbreta/StudentDetails'))
 const SendReports = React.lazy(() => import('./views/envioReportes/SendReports'))
 const Students = React.lazy(() => import('./views/alumnos/Students'))
+const Parents = React.lazy(() => import('./views/padres/Parents'))
+const Groups = React.lazy(() => import('./views/grupos/Groups'))
+const Configuration = React.lazy(() => import('./views/configuracion/Configuration'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -63,6 +66,9 @@ const routes = [
   { path: '/consultarLibreta/estudianteLibreta', name: 'Mi libreta', component: reportSummary },
   { path: '/consultarLibreta/estudianteDetalles', name: 'Detalles', component: StudentDetails },
   { path: '/alumnos', name: 'Alumnos', component: Students },
+  { path: '/padres', name: 'Padres', component: Parents },
+  { path: '/grupos', name: 'Grupos', component: Groups },
+  { path: '/configuracion', name: 'Configuración', component: Configuration },
   { path: '/base', name: 'Base', component: Cards, exact: true },
   { path: '/base/accordion', name: 'Accordion', component: Accordion },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },

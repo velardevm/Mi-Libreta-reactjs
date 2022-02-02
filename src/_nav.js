@@ -11,6 +11,7 @@ import {
   cilSettings,
   cilGroup,
   cilStar,
+  cilUserFemale,
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -43,17 +44,29 @@ const _nav = [
     to: '/alumnos',
     icon: <CIcon icon={cilSchool} customClassName="nav-icon" />,
   },
-  /*   {
-      component: CNavItem,
-      name: 'Grupos',
-      to: '/alumnos',
-      icon: <CIcon icon={cilGroup} customClassName="nav-icon" />,
-    }, */
+  {
+    component: CNavItem,
+    name: 'Padres',
+    to: '/padres',
+    icon: <CIcon icon={cilUserFemale} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Grupos',
+    to: '/grupos',
+    icon: <CIcon icon={cilGroup} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Configuración',
+    to: '/configuracion',
+    icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
+  },
   {
     component: CNavGroup,
     name: 'Componentes',
     to: '/base',
-    icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,

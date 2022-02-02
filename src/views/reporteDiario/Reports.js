@@ -31,7 +31,12 @@ import RestaurantIcon from '@mui/icons-material/Restaurant'
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions'
 import AirlineSeatFlatAngledIcon from '@mui/icons-material/AirlineSeatFlatAngled'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
+import { Row, Col, Nav, Tab } from '@themesberg/react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPalette } from '@fortawesome/free-solid-svg-icons'
+import { faComments, faSun, faUserCircle } from '@fortawesome/free-regular-svg-icons'
 import { cibCcMastercard, cifUs, cilPeople } from '@coreui/icons'
+import '../../components/styles/ReportItemsMenu.css'
 
 import avatar1 from 'src/assets/images/avatars/1.jpg'
 
@@ -95,46 +100,42 @@ const Reports = () => {
             <strong>Reportes</strong> <small></small>
           </CCardHeader>
           <CCardBody>
-            <CButtonGroup style={btnform}>
-              <Button variant="outlined" size="sm">
-                <RestaurantIcon fontSize="small" />
-              </Button>
-              <CButton color="info" variant="outline" onClick={() => setCount(1)}>
-                Alimentacion
-              </CButton>
-            </CButtonGroup>
-            <CButtonGroup style={btnform}>
-              <Button variant="outlined" size="sm">
-                <AccessibilityNewIcon fontSize="small" />
-              </Button>
-              <CButton color="info" variant="outline" onClick={() => setCount(2)}>
-                Cambio de pañales
-              </CButton>
-            </CButtonGroup>
-            <CButtonGroup style={btnform}>
-              <Button color="warning" variant="outlined" size="sm">
-                <AirlineSeatFlatAngledIcon fontSize="small" />
-              </Button>
-              <CButton color="warning" variant="outline" onClick={() => setCount(3)}>
-                Siestas
-              </CButton>
-            </CButtonGroup>
-            <CButtonGroup style={btnform}>
-              <Button variant="outlined" size="sm">
-                <EmojiEmotionsIcon fontSize="small" />
-              </Button>
-              <CButton color="info" variant="outline" onClick={() => setCount(4)}>
-                Baño
-              </CButton>
-            </CButtonGroup>
-            <CButtonGroup style={btnform}>
-              <Button color="warning" variant="outlined" size="sm">
-                <MenuBookIcon fontSize="small" />
-              </Button>
-              <CButton color="warning" variant="outline" onClick={() => setCount(5)}>
-                Observaciones academicas
-              </CButton>
-            </CButtonGroup>
+            <Col lg={12}>
+              <Nav
+                defaultActiveKey="alimentos"
+                variant="pills"
+                className="rounded flex-column flex-md-row"
+              >
+                <Nav.Item style={btnform} onClick={() => setCount(1)}>
+                  <Nav.Link eventKey="alimentos" className="mb-sm-3 mb-md-0">
+                    <RestaurantIcon fontSize="small" className="me-2" />
+                    Alimentos y estado de ánimo
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item style={btnform} onClick={() => setCount(2)}>
+                  <Nav.Link eventKey="pañales" href="#" className="mb-sm-5 mb-md-0">
+                    <AccessibilityNewIcon icon={faUserCircle} className="me-2" />
+                    Cambio de pañales
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item style={btnform} onClick={() => setCount(3)}>
+                  <Nav.Link eventKey="siestas" href="#" className="mb-sm-3 mb-md-0">
+                    <AirlineSeatFlatAngledIcon fontSize="small" className="me-2" /> Siestas
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item style={btnform} onClick={() => setCount(4)}>
+                  <Nav.Link eventKey="baño" href="#" className="mb-sm-3 mb-md-0">
+                    <EmojiEmotionsIcon fontSize="small" className="me-2" /> Baño
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item style={btnform} onClick={() => setCount(5)}>
+                  <Nav.Link eventKey="observaciones" href="#" className="mb-sm-3 mb-md-0">
+                    <MenuBookIcon fontSize="small" className="me-2" />
+                    Observaciones academicas
+                  </Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Col>
           </CCardBody>
         </CCard>
       </CCol>
@@ -170,10 +171,8 @@ const btnform = {
   marginTop: '10px',
   width: '95%',
 }
-const btnicon = {
-  marginLeft: '10px',
-  marginTop: '10px',
-  display: 'block',
+const navStyle = {
+  backgroundColor: 'info',
 }
 
 export default Reports

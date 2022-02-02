@@ -15,7 +15,7 @@ import {
   CCardFooter,
   CCardHeader,
   CCol,
-  CProgress,
+  CFormCheck,
   CRow,
   CTable,
   CTableBody,
@@ -29,6 +29,7 @@ import Stack from '@mui/material/Stack'
 import { Link } from 'react-router-dom'
 import CIcon from '@coreui/icons-react'
 import { cilPeople } from '@coreui/icons'
+import { v4 as uuidV4 } from 'uuid'
 import { faAddressBook, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import profile5 from 'src/assets/images/avatars/profile-picture-5.jpg'
@@ -46,6 +47,7 @@ import avatar6 from 'src/assets/images/avatars/6.jpg'
 
 const tableExample = [
   {
+    id: uuidV4(),
     avatar: { src: avatar1, status: 'success' },
     user: {
       name: 'Yiorgos Avraamu',
@@ -60,6 +62,7 @@ const tableExample = [
     activity: '10 sec ago',
   },
   {
+    id: uuidV4(),
     avatar: { src: avatar2, status: 'danger' },
     user: {
       name: 'Avram Tarasios',
@@ -74,6 +77,7 @@ const tableExample = [
     activity: '5 minutes ago',
   },
   {
+    id: uuidV4(),
     avatar: { src: avatar3, status: 'warning' },
     user: { name: 'Quintin Ed', new: true, registered: 'Maternal / A' },
     usage: {
@@ -84,6 +88,7 @@ const tableExample = [
     activity: '1 hour ago',
   },
   {
+    id: uuidV4(),
     avatar: { src: avatar4, status: 'secondary' },
     user: { name: 'Enéas Kwadwo', new: true, registered: 'Maternal / A' },
     usage: {
@@ -94,6 +99,7 @@ const tableExample = [
     activity: 'Last month',
   },
   {
+    id: uuidV4(),
     avatar: { src: avatar5, status: 'success' },
     user: {
       name: 'Agapetus Tadeáš',
@@ -108,6 +114,7 @@ const tableExample = [
     activity: 'Last week',
   },
   {
+    id: uuidV4(),
     avatar: { src: avatar6, status: 'danger' },
     user: {
       name: 'Friderik Dávid',
@@ -215,7 +222,7 @@ export const StudentListGroup = () => {
               className="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-2"
             />
             <CCardBody>
-              <Card.Title>Mateo Torres Hernandez</Card.Title>
+              <Card.Title>Mateo Torres Hernan</Card.Title>
               <div className="small text-medium-emphasis">Maternal / B</div>
               <div className="small text-medium-emphasis mb-2">Cumpleaños: 02/06/2019</div>
               <Stack className="d-flex justify-content-center" direction="row" spacing={1}>
@@ -351,8 +358,50 @@ export const StudentListTable = () => {
   )
 }
 
-const handleChange = (newValue) => {
-  console.log('clickeando')
+export const StudentListPendings = () => {
+  const [selectedRowId, setSelectedRowId] = React.useState(null)
+
+  const handleChange = (id) => {
+    console.log(id)
+  }
+  return (
+    <>
+      <CTable align="middle" className="mb-0 border" hover responsive>
+        <CTableHead color="light">
+          <CTableRow>
+            <CTableHeaderCell></CTableHeaderCell>
+            <CTableHeaderCell className="text-center">
+              <CIcon icon={cilPeople} />
+            </CTableHeaderCell>
+            <CTableHeaderCell>Alumno</CTableHeaderCell>
+            <CTableHeaderCell className="text-center">Reportes pendientes</CTableHeaderCell>
+          </CTableRow>
+        </CTableHead>
+        <CTableBody>
+          {tableExample.map((item) => (
+            <CTableRow v-for="item in tableItems" key={item.id}>
+              <CTableDataCell className="text-center">
+                <CFormCheck
+                  type="radio"
+                  id="flexCheckDefault"
+                  onClick={() => handleChange(item.id)}
+                />
+              </CTableDataCell>
+              <CTableDataCell className="text-center">
+                <CAvatar size="md" src={item.avatar.src} />
+              </CTableDataCell>
+              <CTableDataCell>
+                <div>{item.user.name}</div>
+              </CTableDataCell>
+              <CTableDataCell className="text-center">
+                <CBadge color="warning">2 reportes pendientes</CBadge>
+              </CTableDataCell>
+            </CTableRow>
+          ))}
+        </CTableBody>
+      </CTable>
+    </>
+  )
 }
 
 export const ChoosePhotoWidget = (props) => {

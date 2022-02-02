@@ -47,9 +47,9 @@ const AcademicReport = () => {
           <CCol xs={6} sm={6} lg={6}>
             <CFormLabel style={{ marginTop: '20px' }}>Hoy estuve:</CFormLabel>
             <Tabs value={value} onChange={handleMood} aria-label="icon label tabs example">
-              <Tab icon={<TagFacesIcon fontSize="large" />} label="FELIZ" />
-              <Tab icon={<SentimentDissatisfiedIcon fontSize="large" />} label="ENOJADO" />
-              <Tab icon={<SentimentVeryDissatisfiedIcon fontSize="large" />} label="TRISTE" />
+              <Tab icon={<TagFacesIcon sx={{ fontSize: 30 }} />} label="FELIZ" />
+              <Tab icon={<SentimentDissatisfiedIcon sx={{ fontSize: 30 }} />} label="ENOJADO" />
+              <Tab icon={<SentimentVeryDissatisfiedIcon sx={{ fontSize: 30 }} />} label="TRISTE" />
             </Tabs>
           </CCol>
           <CCol xs={6} sm={6} lg={6}>

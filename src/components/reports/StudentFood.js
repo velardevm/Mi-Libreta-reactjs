@@ -6,6 +6,7 @@ import {
   CButtonGroup,
   CTable,
   CCard,
+  CFormCheck,
   CCardBody,
   CFormFloating,
   CCardHeader,
@@ -49,23 +50,39 @@ const FoodReport = () => {
           <CCol xs={6} sm={6} lg={6}>
             <CFormLabel style={{ marginTop: '20px' }}>Hoy estuve:</CFormLabel>
             <Tabs value={value} onChange={handleMood} aria-label="icon label tabs example">
-              <Tab icon={<TagFacesIcon fontSize="large" />} label="FELIZ" />
-              <Tab icon={<SentimentDissatisfiedIcon fontSize="large" />} label="ENOJADO" />
-              <Tab icon={<SentimentVeryDissatisfiedIcon fontSize="large" />} label="TRISTE" />
+              <Tab icon={<TagFacesIcon sx={{ fontSize: 30 }} />} label="Feliz" />
+              <Tab icon={<SentimentDissatisfiedIcon sx={{ fontSize: 30 }} />} label="Enojado" />
+              <Tab icon={<SentimentVeryDissatisfiedIcon sx={{ fontSize: 30 }} />} label="Triste" />
             </Tabs>
           </CCol>
           <CCol xs={6} sm={6} lg={6}>
             <CFormLabel style={{ marginTop: '20px' }}>Cantidad de comida</CFormLabel>
-            <CButtonGroup role="group" class="text-center" style={{ marginTop: '20px' }}>
-              <CButton color="primary" variant="outline">
-                Mucho
-              </CButton>
-              <CButton color="primary" variant="outline" style={{ marginLeft: '10px' }}>
-                Poquito
-              </CButton>
-              <CButton color="primary" variant="outline" style={{ marginLeft: '10px' }}>
-                Nada
-              </CButton>
+            <br></br>
+            <CButtonGroup role="group" class="text-center" style={{ marginTop: '15px' }}>
+              <CFormCheck
+                type="radio"
+                button={{ color: 'info', variant: 'outline' }}
+                name="btnradio"
+                id="btnradio1"
+                autoComplete="off"
+                label="Mucho"
+              />
+              <CFormCheck
+                type="radio"
+                button={{ color: 'info', variant: 'outline' }}
+                name="btnradio"
+                id="btnradio2"
+                autoComplete="off"
+                label="Poco"
+              />
+              <CFormCheck
+                type="radio"
+                button={{ color: 'info', variant: 'outline' }}
+                name="btnradio"
+                id="btnradio3"
+                autoComplete="off"
+                label="Nada"
+              />
             </CButtonGroup>
           </CCol>
           <CFormFloating>

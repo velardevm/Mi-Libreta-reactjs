@@ -26,10 +26,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import { faUsers, faEllipsisH, faEye, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
 import Modal from 'src/components/Modals'
-import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth'
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted'
 import AddCircleIcon from '@mui/icons-material/AddCircle'
-import IconButton from '@mui/material/IconButton'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { StudentListGroup } from 'src/components/StudentCard'
@@ -37,7 +34,6 @@ import { StudentListTable } from 'src/components/StudentCard'
 
 const Students = () => {
   const [loading, setLoading] = React.useState(false)
-  const [studentList, setStudentList] = React.useState(true)
   const [orderList, setOrderList] = React.useState(1)
   function handleClick() {
     setLoading(true)
@@ -109,7 +105,7 @@ const Students = () => {
                 onClick={handleClick}
                 loading={loading}
                 loadingPosition="start"
-                startIcon={<AddCircleIcon studentList={studentList} />}
+                startIcon={<AddCircleIcon />}
                 variant="contained"
               >
                 Registrar alumno

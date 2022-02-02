@@ -31,7 +31,7 @@ import Button from '@mui/material/Button'
 import { StudentListGroup } from 'src/components/StudentCard'
 import { StudentListTable } from 'src/components/StudentCard'
 
-const Groups = () => {
+const Parents = () => {
   const [loading, setLoading] = React.useState(false)
   const [orderList, setOrderList] = React.useState(1)
   function handleClick() {
@@ -50,10 +50,10 @@ const Groups = () => {
   return (
     <CRow>
       <CCol xs={12}>
-        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-3">
-          <div className="d-block mb-0 mb-md-0">
-            <h4>Grupos</h4>
-            <p className="mb-0">Seleccione una sección para filtrar alumnos</p>
+        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+          <div className="d-block mb-4 mb-md-0">
+            <h4>Transactions</h4>
+            <p className="mb-0">Your web analytics dashboard template.</p>
           </div>
         </div>
         <div className="table-settings mb-4">
@@ -63,15 +63,10 @@ const Groups = () => {
                 <InputGroup.Text>
                   <FontAwesomeIcon icon={faSearch} />
                 </InputGroup.Text>
-                <Form.Select>
-                  <option defaultValue>-- Seleccionar</option>
-                  <option>One</option>
-                  <option>Two</option>
-                  <option>Three</option>
-                </Form.Select>
+                <Form.Control type="text" placeholder="Search" />
               </InputGroup>
             </Col>
-            <Col xs={6} md={6} xl={6} className="ps-md-0 text-end">
+            <Col xs={4} md={6} xl={6} className="ps-md-0 text-end">
               <Box
                 className="d-grid gap-2 d-md-flex justify-content-md-end"
                 sx={{ '& > button': { m: 1 }, marginBottom: '10px' }}
@@ -109,4 +104,4 @@ const filterStyle = {
   marginBottom: '15px',
 }
 
-export default Groups
+export default Parents

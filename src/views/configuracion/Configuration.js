@@ -27,13 +27,11 @@ import {
   CFormCheck,
   CFormSelect,
 } from '@coreui/react'
-import avatar3 from 'src/assets/images/avatars/3.jpg'
-import { StudentInfoForm } from 'src/components/RegisterStudentForm'
-import { ChoosePhotoWidget, ProfileCardWidget } from 'src/components/StudentCard'
+import CIcon from '@coreui/icons-react'
+import { cilChartPie, cilList, cilHappy, cilSearch } from '@coreui/icons'
 import { ParentsInfoForm } from 'src/components/RegisterParentsForm'
-
-// Material Dashboard 2 React components
-import MDBox from 'src/components/MDBox'
+import FormConfiguration from 'src/components/FormConfiguration'
+import { v4 as uuidV4 } from 'uuid'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -61,24 +59,34 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 }
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  }
-}
-
-const StudentDetails = () => {
+const Configuration = () => {
+  const [input, setInput] = useState('')
+  const [todos, setTodos] = useState([
+    { id: uuidV4(), title: 'Prematernal.' },
+    { id: uuidV4(), title: 'Maternal' },
+    { id: uuidV4(), title: 'Primero' },
+    { id: uuidV4(), title: 'Segundo' },
+  ])
+  const [cantidades, setCantidades] = useState([
+    { id: uuidV4(), title: 'Mucho.' },
+    { id: uuidV4(), title: 'Poquito' },
+    { id: uuidV4(), title: 'Nada' },
+    { id: uuidV4(), title: 'Solo lo que le gusta' },
+  ])
+  const [animo, setanimo] = useState([
+    { id: uuidV4(), title: 'Feliz.' },
+    { id: uuidV4(), title: 'Enojado' },
+    { id: uuidV4(), title: 'Triste' },
+  ])
   const [activeKey, setActiveKey] = useState(1)
-  const [tabValue, setTabValue] = useState(0)
-  const [value, setValue] = useState(0)
-  const [studentList, setStudentList] = useState(false)
+  const [editTodo, setEditTodo] = useState('')
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
-
-  const handleSetTabValue = (event, newValue) => setTabValue(newValue)
+  /*   useEffect(() => {
+      const observationsTemp = [
+        { id: uuidV4(), title: 'MAMI NECESITO TOALLAS HÚMEDASPOR FAVOR, GRACIAS.' },
+        { id: uuidV4(), title: 'MAMI ME HACEN FALTA PAÑALES Y TOALLITAS HÚMEDAS POR FAVOR' },
+      ]
+    }, []); */
 
   return (
     <>
@@ -90,7 +98,8 @@ const StudentDetails = () => {
               active={activeKey === 1}
               onClick={() => setActiveKey(1)}
             >
-              Alumno
+              <CIcon icon={cilList} className="me-2" />
+              Secciones
             </CNavLink>
           </CNavItem>
           <CNavItem>
@@ -99,7 +108,8 @@ const StudentDetails = () => {
               active={activeKey === 2}
               onClick={() => setActiveKey(2)}
             >
-              Papá
+              <CIcon icon={cilChartPie} className="me-2" />
+              Cantidades
             </CNavLink>
           </CNavItem>
           <CNavItem>
@@ -108,7 +118,8 @@ const StudentDetails = () => {
               active={activeKey === 3}
               onClick={() => setActiveKey(3)}
             >
-              Mamá
+              <CIcon icon={cilHappy} className="me-2" />
+              Estado de ánimo
             </CNavLink>
           </CNavItem>
           <CNavItem>
@@ -117,7 +128,8 @@ const StudentDetails = () => {
               active={activeKey === 4}
               onClick={() => setActiveKey(4)}
             >
-              Lista de distribucion
+              <CIcon icon={cilSearch} className="me-2" />
+              Observaciones
             </CNavLink>
           </CNavItem>
         </CNav>
@@ -129,15 +141,17 @@ const StudentDetails = () => {
             visible={activeKey === 1}
           >
             <Row>
-              <Col xs={12} xl={4}>
-                <Row>
-                  <Col xs={12}>
-                    <ProfileCardWidget studentList={studentList} />
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12} xl={8}>
-                <StudentInfoForm />
+              <Col>
+                <FormConfiguration
+                  input={input}
+                  setInput={setInput}
+                  todos={todos}
+                  setTodos={setTodos}
+                  editTodo={editTodo}
+                  setEditTodo={setEditTodo}
+                  cardTitle="Secciones actuales"
+                  titleButton={'Registrar sección'}
+                />
               </Col>
             </Row>
           </CTabPane>
@@ -148,7 +162,16 @@ const StudentDetails = () => {
             visible={activeKey === 2}
           >
             <CCol>
-              <ParentsInfoForm />
+              <FormConfiguration
+                input={input}
+                setInput={setInput}
+                todos={cantidades}
+                setTodos={setCantidades}
+                editTodo={editTodo}
+                setEditTodo={setEditTodo}
+                cardTitle="Plantillas cantidades"
+                titleButton={'Registrar cantidad'}
+              />
             </CCol>
           </CTabPane>
           <CTabPane
@@ -157,7 +180,16 @@ const StudentDetails = () => {
             aria-labelledby="contact-tab"
             visible={activeKey === 3}
           >
-            <ParentsInfoForm />
+            <FormConfiguration
+              input={input}
+              setInput={setInput}
+              todos={animo}
+              setTodos={setanimo}
+              editTodo={editTodo}
+              setEditTodo={setEditTodo}
+              cardTitle="Plantillas estado de ánimo"
+              titleButton={'Registrar estado de ánimo'}
+            />
           </CTabPane>
           <CTabPane
             style={{ backgroundColor: '#ecedef', marginTop: '20px' }}
@@ -165,7 +197,16 @@ const StudentDetails = () => {
             aria-labelledby="contact-tab"
             visible={activeKey === 4}
           >
-            tho
+            <FormConfiguration
+              input={input}
+              setInput={setInput}
+              todos={todos}
+              setTodos={setTodos}
+              editTodo={editTodo}
+              setEditTodo={setEditTodo}
+              cardTitle="Plantillas observaciones"
+              titleButton={'Registrar plantilla'}
+            />
           </CTabPane>
         </CTabContent>
       </div>
@@ -173,11 +214,4 @@ const StudentDetails = () => {
   )
 }
 
-const tabsStyle = {
-  textDecoration: 'none',
-  '&:hover': {
-    textDecoration: 'underline',
-  },
-}
-
-export default StudentDetails
+export default Configuration
